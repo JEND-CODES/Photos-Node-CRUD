@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photos | CRUD Node.js</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://portfolio.planetcode.fr/img/logoNodeJsCustom2.png" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Police du site -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand"><i class="fas fa-camera-retro"></i>&nbsp;PHOTOS</a>
+        </div>
+
+            <ul class="navbar-links">
+              <% if (!currentUser){ %>
+              <li><a href="/login"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a></li>
+              <li><!--<a href="/register">Sign up</a></li>-->
+              <%} else { %>
+              <li>
+                <!--<a><i class="fas fa-user-circle"></i>&nbsp;<%=currentUser.username %></a>-->
+              </li>
+              <li><a href="/logout"><i class="fas fa-sign-out-alt"></i>&nbsp;LOGOUT</a></li>
+              <%}%>
+            </ul>
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <%if(error && error.length>0){%>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+      <%}%> <%if(success && success.length>0){%>
+      <div class="alert alert-info" role="alert">
+        <%= success %>
+      </div>
+      <%}%>
+    </div>
+
+  </body>
+</html>

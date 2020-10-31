@@ -1,0 +1,62 @@
+<%- include("../partials/header") %>
+<br /><br /><br /><br />
+<div class="container">
+  <div class="row">
+
+    <!--<a href="/chapter" class="link">Retour à la liste des chapitres</a>-->
+
+    <div class="col-md-3">
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="thumbnail">
+
+        <img class="img-responsive" src="<%= chapter.image%>" />
+
+        <div class="caption-full">
+
+          <!--<h4 class="pull-right"><%=chapter.date%></h4>-->
+
+          <h4 class="title"><%= chapter.title%></h4>
+
+          <p><%= chapter.article %></p>
+
+          <br />
+
+          <p><em>Copyright <%= chapter.author%></em></p>
+
+          <br />
+
+          <%if(currentUser){%>
+          <a
+            class="btn btn-xs btn-danger"
+            href="/chapter/new"
+            >New</a
+          >
+          <a
+            class="btn btn-xs btn-default"
+            href="/chapter/<%=chapter._id%>/edit"
+            >Editer</a
+          >
+          <form
+            class="delete-form"
+            action="/chapter/<%=chapter._id%>?_method=DELETE"
+            method="POST"
+          >
+            <button class="btn btn-xs btn-info">Supprimer</button>
+          </form>
+          <%}%>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+    </div>
+
+  </div>
+</div>
+
+<%- include("../partials/footer") %>
